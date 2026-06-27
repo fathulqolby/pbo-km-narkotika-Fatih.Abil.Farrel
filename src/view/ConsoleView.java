@@ -85,4 +85,14 @@ public class ConsoleView {
             }
         }
     }
+    private void tambahPutusan() {
+        System.out.println("\n--- TAMBAH PUTUSAN MANUAL ---");
+        String nomor = input.getStringInput("Nomor Perkara: ");
+        String nama = input.getStringInput("Nama Terdakwa: ");
+        String jenis = input.getStringInput("Jenis Narkotika: ");
+        int vonis = input.getIntInput("Vonis Hukuman (dalam bulan): ");
+        double berat = input.getDoubleInput("Berat Barang Bukti (gram): ");
+
+        controller.tambahDataManual(nomor, nama, jenis, vonis, berat);
+    }
 }
