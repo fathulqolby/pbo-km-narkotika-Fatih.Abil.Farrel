@@ -8,4 +8,8 @@ import java.util.ArrayList;
 public class KnowledgeController {
     // Controller memegang akses ke repository (database)
     private KnowledgeRepository repository;
+
+    public KnowledgeController() {
+        repository = new KnowledgeRepository();
+    }
 }
