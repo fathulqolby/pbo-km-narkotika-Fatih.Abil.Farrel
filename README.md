@@ -30,6 +30,24 @@ Proyek ini terstruktur dalam berbagai *package* sesuai arsitektur MVC (`model`, 
 ## Video Demo Aplikasi
 (link vidio menyusul)
 
+## Desain Antarmuka GUI (JavaFX)
+Berikut adalah wireframe layout aplikasi JavaFX kami:
+=========================================================
+|       KNOWLEDGE MANAGEMENT SYSTEM - PUTUSAN NARKOTIKA |
+=========================================================
+| [ Kolom Pencarian Nomor ] [Btn Cari] [Btn Filter]     |
+---------------------------------------------------------
+|                                 | [ FORM TAMBAH DATA ]|
+|                                 | No: [________]      |
+|    TABEL DAFTAR PUTUSAN         | Nama: [______]      |
+|  (Menampilkan Nomor, Nama,      | Vonis: [_____]      |
+|   Jenis, Vonis)                 | Jenis: [_____]      |
+|                                 | [ TOMBOL SIMPAN ]   |
+|                                 |---------------------|
+|                                 | [ GRAFIK STATISTIK ]|
+|                                 |    (Pie Chart)      |
+=========================================================
+
 ## Daftar Anggota Kelompok
 | Nama Lengkap | NIM | Peran / Layer | Branch Git |
 | :--- | :--- | :--- | :--- |
