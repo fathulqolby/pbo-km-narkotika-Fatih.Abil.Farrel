@@ -30,4 +30,9 @@ public class KnowledgeController {
     public Putusan cariData(String nomor) {
         return repository.cariByNomor(nomor);
     }
+
+    // 3. Memfilter data berdasarkan jenis narkotika
+    public ArrayList<Putusan> filterDataJenis(String jenis) {
+        return repository.filterByJenis(jenis);
+    }
 }
