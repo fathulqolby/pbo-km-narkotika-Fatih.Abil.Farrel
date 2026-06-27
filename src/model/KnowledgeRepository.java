@@ -43,6 +43,28 @@ public class KnowledgeRepository {
         }
         return false;
     }
+
+    // 6. Filter berdasarkan Jenis Narkotika
+    public ArrayList<Putusan> filterByJenis(String jenis) {
+        ArrayList<Putusan> hasil = new ArrayList<>();
+        for (Putusan p : daftarPutusan) {
+            if (p.getJenisNarkotika() != null && p.getJenisNarkotika().equalsIgnoreCase(jenis)) {
+                hasil.add(p);
+            }
+        }
+        return hasil;
+    }
+
+    // 7. Filter berdasarkan Pengadilan
+    public ArrayList<Putusan> filterByPengadilan(String pengadilan) {
+        ArrayList<Putusan> hasil = new ArrayList<>();
+        for (Putusan p : daftarPutusan) {
+            if (p.getPengadilan() != null && p.getPengadilan().toLowerCase().contains(pengadilan.toLowerCase())) {
+                hasil.add(p);
+            }
+        }
+        return hasil;
+    }
 }
 
 
