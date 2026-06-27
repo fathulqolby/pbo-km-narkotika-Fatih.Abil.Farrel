@@ -36,4 +36,15 @@ public class ConsoleView {
             }
         }
     }
+    private void tampilkanSemua() {
+        System.out.println("\n--- DAFTAR SEMUA PUTUSAN ---");
+        ArrayList<Putusan> daftar = controller.getSemuaData();
+        if (daftar.isEmpty()) {
+            System.out.println("Data masih kosong.");
+            return;
+        }
+        for (Putusan p : daftar) {
+            System.out.println("No: " + p.getNomorPerkara() + " | Terdakwa: " + p.getNamaTerdakwa() + " | Vonis: " + p.getVonisHukuman() + " bulan");
+        }
+    }
 }
