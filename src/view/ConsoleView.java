@@ -27,15 +27,28 @@ public class ConsoleView {
             int pilihan = input.getIntInput("Pilih menu (1-5): ");
 
             switch (pilihan) {
-                case 1: tampilkanSemua(); break;
-                case 2: cariPutusan(); break;
-                case 3: filterPutusan(); break;
-                case 4: tambahPutusan(); break;
-                case 5: jalan = false; System.out.println("Program selesai. Terima kasih!"); break;
-                default: System.out.println("Pilihan tidak ada di menu!");
+                case 1:
+                    tampilkanSemua();
+                    break;
+                case 2:
+                    cariPutusan();
+                    break;
+                case 3:
+                    filterPutusan();
+                    break;
+                case 4:
+                    tambahPutusan();
+                    break;
+                case 5:
+                    jalan = false;
+                    System.out.println("Program selesai. Terima kasih!");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak ada di menu!");
             }
         }
     }
+
     private void tampilkanSemua() {
         System.out.println("\n--- DAFTAR SEMUA PUTUSAN ---");
         ArrayList<Putusan> daftar = controller.getSemuaData();
@@ -45,6 +58,31 @@ public class ConsoleView {
         }
         for (Putusan p : daftar) {
             System.out.println("No: " + p.getNomorPerkara() + " | Terdakwa: " + p.getNamaTerdakwa() + " | Vonis: " + p.getVonisHukuman() + " bulan");
+        }
+    }
+
+    private void cariPutusan() {
+        System.out.println("\n--- CARI PUTUSAN ---");
+        String nomor = input.getStringInput("Masukkan Nomor Perkara: ");
+        Putusan p = controller.cariData(nomor);
+        if (p != null) {
+            System.out.println("Data Ditemukan: " + p.getNamaTerdakwa() + " - Vonis: " + p.getVonisHukuman() + " bulan");
+        } else {
+            System.out.println("Data dengan nomor perkara tersebut tidak ditemukan.");
+        }
+    }
+
+    private void filterPutusan() {
+        System.out.println("\n--- FILTER PUTUSAN ---");
+        String jenis = input.getStringInput("Masukkan Jenis Narkotika (contoh: Sabu-sabu): ");
+        ArrayList<Putusan> hasil = controller.filterDataJenis(jenis);
+        if (hasil.isEmpty()) {
+            System.out.println("Tidak ditemukan data untuk jenis narkotika tersebut.");
+        } else {
+            System.out.println("Ditemukan " + hasil.size() + " data:");
+            for (Putusan p : hasil) {
+                System.out.println("- " + p.getNomorPerkara() + " (" + p.getNamaTerdakwa() + ")");
+            }
         }
     }
 }
