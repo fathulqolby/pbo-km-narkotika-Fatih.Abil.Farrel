@@ -1,0 +1,52 @@
+package controller;
+
+import model.KnowledgeRepository;
+import model.Putusan;
+import util.PdfParserUtil;
+import java.util.ArrayList;
+
+public class KnowledgeController {
+    // Controller memegang akses ke repository (database)
+    private KnowledgeRepository repository;
+
+    public KnowledgeController() {
+        repository = new KnowledgeRepository();
+        inisialisasiData(); // Panggil fungsi otomatis
+    }
+
+    // Fungsi untuk memuat 50 PDF otomatis menggunakan utilitas Fatih
+    private void inisialisasiData() {
+        System.out.println("=== Memulai Knowledge Management System ===");
+        PdfParserUtil.muatDataDariFolder("dataset", repository);
+        System.out.println("Sistem siap digunakan!\n");
+    }
+
+    // 1. Mengambil semua data untuk ditampilkan di tabel
+    public ArrayList<Putusan> getSemuaData() {
+        return repository.getDaftarSemua();
+    }
+
+    // 2. Mencari data berdasarkan Nomor Perkara
+    public Putusan cariData(String nomor) {
+        return repository.cariByNomor(nomor);
+    }
+
+    // 3. Memfilter data berdasarkan jenis narkotika
+    public ArrayList<Putusan> filterDataJenis(String jenis) {
+        return repository.filterByJenis(jenis);
+    }
+
+    // 4. Menambah putusan baru secara manual dari terminal
+    public void tambahDataManual(String nomor, String nama, String jenis, int vonis, double berat) {
+        Putusan p = new Putusan();
+        p.setNomorPerkara(nomor);
+        p.setNamaTerdakwa(nama);
+        p.setJenisNarkotika(jenis);
+        p.setVonisHukuman(vonis);
+        p.setBeratBarangBukti(berat);
+
+        repository.simpan(p);
+        System.out.println("Data putusan berhasil ditambahkan ke repository!");
+    }
+
+}
