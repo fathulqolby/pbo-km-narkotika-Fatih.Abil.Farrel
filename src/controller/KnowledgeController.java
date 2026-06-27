@@ -11,5 +11,13 @@ public class KnowledgeController {
 
     public KnowledgeController() {
         repository = new KnowledgeRepository();
+        inisialisasiData(); // Panggil fungsi otomatis
+    }
+
+    // Fungsi untuk memuat 50 PDF otomatis menggunakan utilitas Fatih
+    private void inisialisasiData() {
+        System.out.println("=== Memulai Knowledge Management System ===");
+        PdfParserUtil.muatDataDariFolder("dataset", repository);
+        System.out.println("Sistem siap digunakan!\n");
     }
 }
