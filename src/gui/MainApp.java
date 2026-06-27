@@ -16,7 +16,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import model.Putusan;
 import model.PutusanNarkotika;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
