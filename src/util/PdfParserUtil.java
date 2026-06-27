@@ -5,6 +5,8 @@ import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.io.File;
 import java.io.IOException;
 
@@ -34,6 +36,17 @@ public class PdfParserUtil {
             String teksPdf = stripper.getText(document);
 
             Putusan putusan = new Putusan();
+
+            // Ekstrak Nomor Perkara menggunakan Regex
+            Matcher mNomor = Pattern.compile("Nomor\\s+([\\w/.]+)").matcher(teksPdf);
+            if (mNomor.find()) {
+                putusan.setNomorPerkara(mNomor.group(1));
+            }
+            // Ekstrak Nama Terdakwa
+            Matcher mNama = Pattern.compile("Nama lengkap\\s*:\\s*(.+)").matcher(teksPdf);
+            if (mNama.find()) {
+                putusan.setNamaTerdakwa(mNama.group(1).trim());
+            }
 
             return putusan;
         } catch (IOException e) {
