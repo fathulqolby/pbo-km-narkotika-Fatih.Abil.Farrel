@@ -25,4 +25,9 @@ public class KnowledgeController {
     public ArrayList<Putusan> getSemuaData() {
         return repository.getDaftarSemua();
     }
+
+    // 2. Mencari data berdasarkan Nomor Perkara
+    public Putusan cariData(String nomor) {
+        return repository.cariByNomor(nomor);
+    }
 }
