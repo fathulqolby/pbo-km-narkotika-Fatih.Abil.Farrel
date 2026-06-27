@@ -12,13 +12,23 @@ public class PdfParserUtil {
 
     public static void muatDataDariFolder(String folderPath, model.KnowledgeRepository repo) {
         File folder = new File(folderPath);
-        // Membaca semua file dengan ekstensi .pdf di dalam folder
         File[] listOfFiles = folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".pdf"));
 
-        if (listOfFiles == null) {
+        if (listOfFiles != null) {
+            System.out.println("Mengekstrak data dari " + listOfFiles.length + " file PDF...");
+            for (File file : listOfFiles) {
+                Putusan p = ekstrak(file);
+                if (p != null) {
+                    repo.simpan(p); // Menyimpan ke repository
+                }
+            }
+            System.out.println("Ekstraksi selesai! Total data di repositori: " + repo.getTotalData());
+        } else {
             System.out.println("Folder dataset tidak ditemukan.");
-            return;
         }
-        System.out.println("Ditemukan " + listOfFiles.length + " file PDF siap diekstrak.");
+    }
+
+    private static Putusan ekstrak(File file) {
+        return null; // Placeholder sementara
     }
 }
