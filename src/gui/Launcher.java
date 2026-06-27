@@ -5,4 +5,5 @@ public class Launcher {
         // Memanggil method main dari kelas MainApp
         MainApp.main(args);
     }
+
 }
