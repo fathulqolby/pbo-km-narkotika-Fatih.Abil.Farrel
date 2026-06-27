@@ -58,4 +58,22 @@ public class KnowledgeController {
         repository.simpan(p);
         System.out.println("Data putusan berhasil ditambahkan ke repository!");
     }
+
+    // 5. Mengedit data putusan yang sudah ada
+    public boolean editDataManual(String nomorLama, String nomorBaru, String nama, String jenis, int vonis, double berat) {
+        Putusan p = repository.cariByNomor(nomorLama);
+        if (p != null) {
+            p.setNomorPerkara(nomorBaru);
+            p.setNamaTerdakwa(nama);
+            p.setVonisHukuman(vonis);
+
+            // Memastikan data di-cast ke class anak untuk mengubah atribut spesifik
+            if (p instanceof PutusanNarkotika) {
+                ((PutusanNarkotika) p).setJenisNarkotika(jenis);
+                ((PutusanNarkotika) p).setBeratBarangBukti(berat);
+            }
+            return true; // Berhasil diedit
+        }
+        return false; // Data tidak ditemukan
+    }
 }
