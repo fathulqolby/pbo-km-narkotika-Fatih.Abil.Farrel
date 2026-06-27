@@ -47,6 +47,21 @@ public class PdfParserUtil {
             if (mNama.find()) {
                 putusan.setNamaTerdakwa(mNama.group(1).trim());
             }
+            // Ekstrak Vonis
+            Matcher mVonis = Pattern.compile("selama\\s+(\\d+)\\s+(bulan|tahun)", Pattern.CASE_INSENSITIVE).matcher(teksPdf);
+            if (mVonis.find()) {
+                int angka = Integer.parseInt(mVonis.group(1));
+                if (mVonis.group(2).equalsIgnoreCase("tahun")) {
+                    angka *= 12; // Konversi tahun ke bulan
+                }
+                putusan.setVonisHukuman(angka);
+            } else {
+                putusan.setVonisHukuman(0); // Default jika tidak terbaca
+            }
+
+            // Atribut tambahan di-set dengan nilai default sementara
+            putusan.setJenisNarkotika("Sabu-sabu");
+            putusan.setBeratBarangBukti(1.0);
 
             return putusan;
         } catch (IOException e) {
