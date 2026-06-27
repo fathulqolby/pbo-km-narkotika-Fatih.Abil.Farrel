@@ -23,6 +23,26 @@ public class KnowledgeRepository {
     public int getTotalData() {
         return daftarPutusan.size();
     }
+
+    // 4. Mencari berdasarkan Nomor Perkara
+    public Putusan cariByNomor(String nomor) {
+        for (Putusan p : daftarPutusan) {
+            if (p.getNomorPerkara() != null && p.getNomorPerkara().equalsIgnoreCase(nomor)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    // 5. Menghapus data berdasarkan Nomor Perkara
+    public boolean hapus(String nomor) {
+        Putusan p = cariByNomor(nomor);
+        if (p != null) {
+            daftarPutusan.remove(p);
+            return true;
+        }
+        return false;
+    }
 }
 
 
