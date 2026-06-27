@@ -36,3 +36,35 @@ Proyek ini terstruktur dalam berbagai *package* sesuai arsitektur MVC (`model`, 
 | Fathul Qolby | 202510370110014 | Knowledge / Database Engineer (Model) | `feature/model` |
 | M. Shabil Dwi Nur Basyah | 202510370110055 | Backend / Controller Engineer (Controller) | `feature/controller` |
 | M. Farrel Hafizh Al Bintang | 202510370110012 | GUI Designer / View Developer (View) | `feature/view` |
+
+## Desain Antarmuka GUI (JavaFX)
+Berikut adalah *wireframe* atau *mockup* tata letak aplikasi JavaFX kami. Aplikasi dibagi menjadi dua sisi utama: sisi kiri untuk manajemen data (pencarian dan tabel), dan sisi kanan untuk input data serta visualisasi statistik.
+
+```text
++-----------------------------------------------------------------------------+
+|                                                                             |
+|            SISTEM MANAJEMEN PUTUSAN NARKOTIKA (Header Title)                |
+|                                                                             |
++-----------------------------------------------------------------------------+
+|                                      |                                      |
+|  Pencarian: [______________________] |        TAMBAH DATA MANUAL            |
+|  [ Cari Nomor ] [ Filter ] [ Reset ] |                                      |
+|                                      |  Nomor Perkara : [________________]  |
+| +----------------------------------+ |  Nama Terdakwa : [________________]  |
+| | Nomor   | Nama   | Jenis | Vonis | |  Jenis Narkoba : [________________]  |
+| +----------------------------------+ |  Vonis (Bulan) : [________________]  |
+| | 123/Pid | Budi   | Sabu  | 12    | |  Berat (Gram)  : [________________]  |
+| | 456/Pid | Andi   | Ganja | 24    | |                                      |
+| |         |        |       |       | |    [ SIMPAN DATA PUTUSAN ]           |
+| |         |        |       |       | |                                      |
+| |         |        |       |       | +--------------------------------------+
+| |         |        |       |       | |                                      |
+| |         |        |       |       | |        STATISTIK KASUS               |
+| |         |        |       |       | |         ( PIE CHART )                |
+| |         |        |       |       | |             ___                      |
+| |         |        |       |       | |           /     \                    |
+| |         |        |       |       | |          |       |                   |
+| |         |        |       |       | |           \ ___ /                    |
+| +----------------------------------+ |                                      |
+|                                      |                                      |
++-----------------------------------------------------------------------------+
