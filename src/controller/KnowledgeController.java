@@ -20,4 +20,9 @@ public class KnowledgeController {
         PdfParserUtil.muatDataDariFolder("dataset", repository);
         System.out.println("Sistem siap digunakan!\n");
     }
+
+    // 1. Mengambil semua data untuk ditampilkan di tabel
+    public ArrayList<Putusan> getSemuaData() {
+        return repository.getDaftarSemua();
+    }
 }
