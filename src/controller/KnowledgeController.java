@@ -35,4 +35,18 @@ public class KnowledgeController {
     public ArrayList<Putusan> filterDataJenis(String jenis) {
         return repository.filterByJenis(jenis);
     }
+
+    // 4. Menambah putusan baru secara manual dari terminal
+    public void tambahDataManual(String nomor, String nama, String jenis, int vonis, double berat) {
+        Putusan p = new Putusan();
+        p.setNomorPerkara(nomor);
+        p.setNamaTerdakwa(nama);
+        p.setJenisNarkotika(jenis);
+        p.setVonisHukuman(vonis);
+        p.setBeratBarangBukti(berat);
+
+        repository.simpan(p);
+        System.out.println("Data putusan berhasil ditambahkan ke repository!");
+    }
+
 }
