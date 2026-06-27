@@ -29,6 +29,16 @@ public class PdfParserUtil {
     }
 
     private static Putusan ekstrak(File file) {
-        return null; // Placeholder sementara
+        try (PDDocument document = Loader.loadPDF(file)) {
+            PDFTextStripper stripper = new PDFTextStripper();
+            String teksPdf = stripper.getText(document);
+
+            Putusan putusan = new Putusan();
+
+            return putusan;
+        } catch (IOException e) {
+            System.err.println("Gagal membaca file: " + file.getName());
+            return null;
+        }
     }
 }
