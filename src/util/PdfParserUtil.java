@@ -68,5 +68,6 @@ public class PdfParserUtil {
             System.err.println("Gagal membaca file: " + file.getName());
             return null;
         }
+
     }
 }
