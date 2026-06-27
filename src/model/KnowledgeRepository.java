@@ -48,8 +48,13 @@ public class KnowledgeRepository {
     public ArrayList<Putusan> filterByJenis(String jenis) {
         ArrayList<Putusan> hasil = new ArrayList<>();
         for (Putusan p : daftarPutusan) {
-            if (p.getJenisNarkotika() != null && p.getJenisNarkotika().equalsIgnoreCase(jenis)) {
-                hasil.add(p);
+            // Mengecek apakah objek p adalah benar PutusanNarkotika
+            if (p instanceof PutusanNarkotika) {
+                // Downcasting (Mengubah bentuk parent ke child)
+                PutusanNarkotika pn = (PutusanNarkotika) p;
+                if (pn.getJenisNarkotika() != null && pn.getJenisNarkotika().equalsIgnoreCase(jenis)) {
+                    hasil.add(p);
+                }
             }
         }
         return hasil;
