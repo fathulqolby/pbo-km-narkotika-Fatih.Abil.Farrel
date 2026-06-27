@@ -95,4 +95,5 @@ public class ConsoleView {
 
         controller.tambahDataManual(nomor, nama, jenis, vonis, berat);
     }
+
 }
